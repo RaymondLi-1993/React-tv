@@ -12,7 +12,7 @@ const CardList = ({ id }) => {
   useEffect(() => {
     let apiCall = async () => {
       let response = await Axios.get(
-        `http://api.tvmaze.com/shows/${id}/episodes`
+        `https://api.tvmaze.com/shows/${id}/episodes`
       );
       let filtered = response.data
         .map(items => {

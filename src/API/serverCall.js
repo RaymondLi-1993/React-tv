@@ -1,5 +1,5 @@
 import Axios from "axios";
 
 export default Axios.create({
-  baseURL: `http://api.tvmaze.com/search/`,
+  baseURL: `https://api.tvmaze.com/search/`,
 });

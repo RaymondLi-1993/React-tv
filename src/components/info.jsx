@@ -7,7 +7,7 @@ const Info = ({ match }) => {
   useEffect(() => {
     let apiCall = async () => {
       let response = await Axios.get(
-        `http://api.tvmaze.com/episodes/${match.params.id}`
+        `https://api.tvmaze.com/episodes/${match.params.id}`
       );
       setInfo(response.data);
     };
