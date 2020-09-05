@@ -3,12 +3,17 @@ import { useState } from "react";
 
 const Hero = ({ shows, handleSearch }) => {
   const [term, setTerm] = useState(``);
+  const [error, setError] = useState(``);
 
   let handleSubmit = event => {
     event.preventDefault();
-
-    handleSearch(term);
-    setTerm(``);
+    if (term) {
+      handleSearch(term);
+      setTerm(``);
+      setError(``);
+    } else {
+      setError(`Please enter a valid search`);
+    }
   };
 
   return (
@@ -23,30 +28,32 @@ const Hero = ({ shows, handleSearch }) => {
         <div className="w-full h-16 flex">
           <form className="w-full flex justify-center">
             <input
-              className="w-9/12 h-16 py-2 rounded-sm bg-gray-700 justify-start p-12 "
+              className="w-9/12 h-16 py-2 rounded-sm bg-gray-700 justify-start p-12 outline-none"
               placeholder="Search"
               value={term}
               onChange={event => {
                 setTerm(event.target.value);
               }}
-              required
             />
             <button
               onClick={handleSubmit}
               type="submit"
-              className="bg-gray-600 text-black w-16 p-2 text-center"
+              className="bg-gray-600 text-black w-16 p-2 text-center outline-none"
             >
               {
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
-                  ></path>
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="outline-none"
+                >
+                  <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
                 </svg>
               }
             </button>
           </form>
+        </div>
+        <div className="w-full h-8 flex items-center">
+          <h6 className=" ml-48 my-2 text-red-600">{error}</h6>
         </div>
       </div>
     </>

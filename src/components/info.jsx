@@ -24,23 +24,26 @@ const Info = ({ match }) => {
           </h1>
         </div>
         <div
-          className="w-full h-xxl bg-no-repeat bg-cover overflow-hidden z-negative flex"
+          className="w-full h-xxl bg-no-repeat bg-cover overflow-hidden z-negative flex justify-evenly relative"
           style={{ backgroundImage: `url(${info.image.original})` }}
         >
           <div
-            className=" w-9/12 h-xl rounded-lg content-center overflow-hidden m-auto flex shadow-2xl"
-            style={{ backgroundColor: `rgba(${0}, ${0}, ${0}, ${0.85})` }}
+            className=" w-10/12 h-xl  rounded-md  overflow-hidden m-auto shadow-2xl flex flex-row"
+            style={{ backgroundColor: `rgba(${0}, ${0}, ${0}, ${0.7})` }}
           >
-            <div className="w-0 md:w-6/12 h-xl rounded-l-sm md:overflow-hidden ">
+            <div className="flex w-3/12 overflow-hidden rounded-lg">
               <img
                 className="h-full w-full object-cover"
                 src={info.image.original}
               ></img>
             </div>
-            <div className="text-white m-auto px-12 py-12 md:w-6/12 overflow-hidden">
-              <p className="h-full font-bold font-mono text-md break-words">
-                {info.summary}
-              </p>
+            <div className=" w-6/12 h-full relative z-0 flex-grow flex justify-center items-center">
+              <div className="absolute z-50 w-9/12 h-48 m-auto px-12 py-12 bg-white rounded-lg">
+                <h4 className=" text-xl leading-relaxed text-black">{`${info.summary.replace(
+                  /(<p[^>]+?>|<p>|<\/p>)/gim,
+                  ""
+                )}`}</h4>
+              </div>
             </div>
           </div>
         </div>

@@ -17,7 +17,6 @@ function Home() {
           q: search,
         },
       });
-      console.log(response.data);
       setShows(response.data[0]);
     };
     apiCall();

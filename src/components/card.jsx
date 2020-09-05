@@ -8,14 +8,17 @@ const Card = ({ episodeInfo }) => {
 
   return (
     <>
-      <div className="bg-white  grid-cols-1 shadow-lg rounded-lg overflow-hidden m-auto cursor-pointer hover:opacity-75 w-11/12 h-11/12">
+      <div className="bg-white grid-cols-1 shadow-lg rounded-lg overflow-hidden m-auto cursor-pointer hover:opacity-75 w-9/12 h-l relative">
         <img
           alt={`${episodeInfo.name}`}
           id={episodeInfo.id}
-          className="object-cover h-64 w-auto"
+          className="object-cover h-l w-auto absolute z-0"
           src={`${episodeInfo.image.original}`}
           onClick={handleClick}
         />
+        <div className="flex h-full justify-center items-end">
+          <h1 className="absolute z-50 text-white">{episodeInfo.name}</h1>
+        </div>
       </div>
     </>
   );
