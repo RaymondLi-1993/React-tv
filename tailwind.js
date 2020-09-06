@@ -9,6 +9,7 @@ module.exports = {
         l: `22rem`,
         xl: `28rem`,
         xxl: `38rem`,
+        xxxl: `43rem`,
       },
       zIndex: {
         negative: -1,

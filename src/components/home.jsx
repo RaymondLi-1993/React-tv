@@ -11,7 +11,7 @@ function Home() {
   const [shows, setShows] = useState(null);
 
   useEffect(() => {
-    let apiCall = async () => {
+    let apiCalls = async () => {
       let response = await ServerCall.get(`shows`, {
         params: {
           q: search,
@@ -19,7 +19,7 @@ function Home() {
       });
       setShows(response.data[0]);
     };
-    apiCall();
+    apiCalls();
   }, [search]);
 
   let handleSearch = term => {
@@ -27,6 +27,7 @@ function Home() {
   };
 
   if (shows) {
+    console.log(shows);
     return (
       <div className="bg-gray-300">
         <Hero shows={shows} handleSearch={handleSearch} />

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Invalid from "./invalid";
+import History from "../history";
 
 import Axios from "axios";
 
@@ -53,7 +54,7 @@ const CardList = ({ id }) => {
       </>
     );
   }
-  return <Invalid />;
+  return <div>{episodes === [] ? History.push(`/invalid`) : null}</div>;
 };
 
 export default CardList;

@@ -5,6 +5,7 @@ import History from "./history";
 import Header from "./components/header";
 import Home from "./components/home";
 import Info from "./components/info";
+import Invalid from "./components/invalid";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Header />
           <Route path="/" exact component={Home} />
           <Route path="/info/:id" exact component={Info} />
+          <Route path="/invalid" exact component={Invalid} />
         </div>
       </Router>
     </div>

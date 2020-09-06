@@ -18,15 +18,18 @@ const Hero = ({ shows, handleSearch }) => {
 
   return (
     <>
-      <div className="h-full">
+      <div className="h-xxxl">
         <div
-          className="bg-fixed py-64 bg-no-repeat bg-cover z-0"
+          className="bg-fixed py-64 bg-no-repeat  h-xxxl bg-cover z-0"
           style={{ backgroundImage: `url(${shows.show.image.original})` }}
         ></div>
       </div>
-      <div className="bg-black py-12 w-full h-40 text-white relative z-0">
-        <div className="w-full h-16 flex">
-          <form className="w-full flex justify-center">
+      <div className="bg-black py-12 w-full h-32 text-white relative z-0">
+        <div className="w-full h-12 flex">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full flex justify-center items-center"
+          >
             <input
               className="w-9/12 h-16 py-2 rounded-sm bg-gray-700 justify-start p-12 outline-none"
               placeholder="Search"
@@ -35,21 +38,6 @@ const Hero = ({ shows, handleSearch }) => {
                 setTerm(event.target.value);
               }}
             />
-            <button
-              onClick={handleSubmit}
-              type="submit"
-              className="bg-gray-600 text-black w-16 p-2 text-center outline-none"
-            >
-              {
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="outline-none"
-                >
-                  <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
-                </svg>
-              }
-            </button>
           </form>
         </div>
         <div className="w-full h-8 flex items-center">
