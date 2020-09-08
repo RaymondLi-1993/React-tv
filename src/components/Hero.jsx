@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import Seasons from "./seasons";
+
 const Hero = ({ shows, handleSearch }) => {
   const [term, setTerm] = useState(``);
   const [error, setError] = useState(``);
@@ -16,12 +18,14 @@ const Hero = ({ shows, handleSearch }) => {
     }
   };
 
+  console.log(shows);
+
   return (
     <>
       <div className="h-xxxl">
         <div
           className="bg-fixed py-64 bg-no-repeat  h-xxxl bg-cover z-0"
-          style={{ backgroundImage: `url(${shows.show.image.original})` }}
+          style={{ backgroundImage: `url(${shows[0].show.image.original})` }}
         ></div>
       </div>
       <div className="bg-black py-12 w-full h-32 text-white relative z-0">
@@ -44,8 +48,9 @@ const Hero = ({ shows, handleSearch }) => {
           <h6 className=" ml-48 my-2 text-red-600">{error}</h6>
         </div>
       </div>
+      <Seasons shows={shows} check={{ key: false }} />
+      );
     </>
   );
 };
-
 export default Hero;

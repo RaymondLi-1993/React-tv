@@ -3,9 +3,10 @@ import { Router, Route } from "react-router-dom";
 import History from "./history";
 
 import Header from "./components/header";
-import Home from "./components/home";
 import Info from "./components/info";
 import Invalid from "./components/invalid";
+import Home from "./components/home";
+import Seasons from "./components/seasons";
 
 function App() {
   return (

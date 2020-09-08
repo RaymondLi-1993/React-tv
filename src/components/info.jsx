@@ -1,31 +1,50 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
+import Seasons from "./seasons";
+
 const Info = ({ match }) => {
   const [info, setInfo] = useState(``);
+  const [check, setCheck] = useState(true);
+  const [select, setSelected] = useState(null);
 
   useEffect(() => {
     let apiCall = async () => {
       let response = await Axios.get(
-        `https://api.tvmaze.com/episodes/${match.params.id}`
+        `https://api.tvmaze.com/shows/${match.params.id}/episodes`
       );
       setInfo(response.data);
+      setCheck(true);
     };
     apiCall();
   }, [match.params.id]);
+
+  const handleClick = props => {
+    setSelected(props);
+    setCheck(false);
+    window.scrollTo(0, 0);
+  };
 
   if (info) {
     return (
       <>
         <div className=" bg-opacity-75 bg-black py-8 flex w-full text-white justify-center md:justify-start">
-          <h1 className="mx-6 font-mono font-bold">
+          {/* <h1 className="mx-6 font-mono font-bold">
             {" "}
             EPISODE {info.number} || {info.name}
-          </h1>
+          </h1> */}
         </div>
         <div
           className="w-full h-xxl bg-no-repeat bg-cover overflow-hidden z-negative flex justify-evenly relative"
-          style={{ backgroundImage: `url(${info.image.original})` }}
+          style={
+            info[0].image
+              ? check === true
+                ? { backgroundImage: `url(${info[0].image.original})` }
+                : { backgroundImage: `url(${select.src})` }
+              : {
+                  backgroundImage: `https://www.iceagetrail.org/wp-content/uploads/2016/11/currently-unavailable.png`,
+                }
+          }
         >
           <div
             className=" w-10/12 h-xl  rounded-md  overflow-hidden m-auto shadow-2xl flex flex-row"
@@ -34,20 +53,33 @@ const Info = ({ match }) => {
             <div className="flex w-3/12 overflow-hidden rounded-lg">
               <img
                 className="h-full w-full object-cover"
-                src={info.image.original}
+                src={
+                  info[0].image
+                    ? check === true
+                      ? info[0].image.original
+                      : select.src
+                    : `https://www.iceagetrail.org/wp-content/uploads/2016/11/currently-unavailable.png`
+                }
               ></img>
             </div>
             <div className=" w-6/12 h-full relative z-0 flex-grow flex justify-center items-center">
               <div className="absolute z-50 w-9/12 h-48 m-auto px-12 py-12 bg-white rounded-lg">
-                <h4 className=" text-xl leading-relaxed text-black">{`${info.summary.replace(
-                  /(<p[^>]+?>|<p>|<\/p>)/gim,
-                  ""
-                )}`}</h4>
+                <h4 className=" text-xl leading-relaxed text-black">
+                  {info[0].summary
+                    ? check === true
+                      ? `${info[0].summary.replace(
+                          /(<p[^>]+?>|<p>|<\/p>)/gim,
+                          ""
+                        )}`
+                      : `${select.alt.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, "")}`
+                    : `No Description available`}
+                </h4>
               </div>
             </div>
           </div>
         </div>
         <div className="bg-opacity-75 bg-black py-12 w-full"></div>
+        <Seasons shows={info} check={{ key: true }} handleClick={handleClick} />
       </>
     );
   }

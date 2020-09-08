@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Hero from "./Hero";
 import ServerCall from "../API/serverCall";
-import CardList from "./cardList";
+
 import Invalid from "./invalid";
 import History from "../history";
 
@@ -17,7 +17,7 @@ function Home() {
           q: search,
         },
       });
-      setShows(response.data[0]);
+      setShows(response.data);
     };
     apiCalls();
   }, [search]);
@@ -27,11 +27,9 @@ function Home() {
   };
 
   if (shows) {
-    console.log(shows);
     return (
       <div className="bg-gray-300">
         <Hero shows={shows} handleSearch={handleSearch} />
-        <CardList id={shows.show.id} />
       </div>
     );
   }
