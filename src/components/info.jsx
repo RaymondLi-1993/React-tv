@@ -63,18 +63,16 @@ const Info = ({ match }) => {
               ></img>
             </div>
             <div className=" w-6/12 h-full relative z-0 flex-grow flex justify-center items-center">
-              <div className="absolute z-50 w-9/12 h-48 m-auto px-12 py-12 bg-white rounded-lg">
-                <h4 className=" text-xl leading-relaxed text-black">
-                  {info[0].summary
-                    ? check === true
-                      ? `${info[0].summary.replace(
-                          /(<p[^>]+?>|<p>|<\/p>)/gim,
-                          ""
-                        )}`
-                      : `${select.alt.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, "")}`
-                    : `No Description available`}
-                </h4>
-              </div>
+              <h4 className=" text-xl font-bold w-9/12 leading-relaxed text-white">
+                {info[0].summary
+                  ? check === true
+                    ? `${info[0].summary.replace(
+                        /(<p[^>]+?>|<p>|<\/p>)/gim,
+                        ""
+                      )}`
+                    : `${select.alt.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, "")}`
+                  : `No Description available`}
+              </h4>
             </div>
           </div>
         </div>
