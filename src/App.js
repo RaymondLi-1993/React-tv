@@ -6,7 +6,6 @@ import Header from "./components/header";
 import Info from "./components/info";
 import Invalid from "./components/invalid";
 import Home from "./components/home";
-import Seasons from "./components/seasons";
 
 function App() {
   return (

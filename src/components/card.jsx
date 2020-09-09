@@ -12,7 +12,7 @@ const Card = ({ Info, id }) => {
         <img
           alt={`${Info.name}`}
           id={id}
-          className="object-cover h-l w-auto absolute  z-0"
+          className="object-cover h-l w-full absolute  z-0"
           src={
             Info.image
               ? `${Info.image.medium}`

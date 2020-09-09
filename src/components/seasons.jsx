@@ -12,7 +12,7 @@ const Seasons = ({ shows, check, handleClick }) => {
   return (
     <>
       <div className="flex justify-start my-6 ml-12">
-        <h1 className=" text-4xl font-bold ">SEASONS</h1>
+        {/* <h1 className=" text-4xl font-bold "></h1> */}
       </div>
       <div className="mt-16 px-4 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
         {shows.slice(0, count).map(season => {

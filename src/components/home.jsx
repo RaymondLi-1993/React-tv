@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 import Hero from "./Hero";
 import ServerCall from "../API/serverCall";
 
-import Invalid from "./invalid";
-import History from "../history";
-
 function Home() {
   const [search, setSearch] = useState(`doctor who`);
   const [shows, setShows] = useState(null);

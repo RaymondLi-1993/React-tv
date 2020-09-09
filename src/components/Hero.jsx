@@ -18,8 +18,6 @@ const Hero = ({ shows, handleSearch }) => {
     }
   };
 
-  console.log(shows);
-
   return (
     <>
       <div className="h-xxxl">

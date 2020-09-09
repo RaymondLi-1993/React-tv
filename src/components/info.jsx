@@ -52,6 +52,7 @@ const Info = ({ match }) => {
           >
             <div className="flex w-3/12 overflow-hidden rounded-lg">
               <img
+                alt="images"
                 className="h-full w-full object-cover"
                 src={
                   info[0].image
