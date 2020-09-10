@@ -19,7 +19,13 @@ const Hero = ({ shows, handleSearch }) => {
       <div className="h-xxxl">
         <div
           className="bg-fixed py-64 bg-no-repeat  h-xxxl bg-cover z-0"
-          style={{ backgroundImage: `url(${shows[0].show.image.original})` }}
+          style={
+            shows[0].show.image.original
+              ? { backgroundImage: `url(${shows[0].show.image.original})` }
+              : {
+                  backgroundImage: `url(https://www.iceagetrail.org/wp-content/uploads/2016/11/currently-unavailable.png)`,
+                }
+          }
         ></div>
       </div>
       <div className="bg-black py-12 w-full h-32 text-white relative z-0">
@@ -29,7 +35,7 @@ const Hero = ({ shows, handleSearch }) => {
             className="w-full flex justify-center items-center"
           >
             <input
-              className="w-9/12 h-16 py-2 rounded-sm bg-gray-700 justify-start p-12 outline-none"
+              className="w-9/12 h-16 py-2 rounded-sm bg-gray-700 justify-start p-12 outline-none text-2xl"
               placeholder="Search"
               value={term}
               onChange={event => {

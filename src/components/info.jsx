@@ -30,12 +30,7 @@ const Info = ({ match }) => {
     console.log(select);
     return (
       <>
-        <div className=" h-24 bg-opacity-75 bg-black py-8 flex w-full text-white justify-center md:justify-start">
-          {/* <h1 className="mx-6 font-mono font-bold">
-            {" "}
-            EPISODE {select.number} || {select.name}
-          </h1> */}
-        </div>
+        <div className=" h-24 bg-opacity-75 bg-black py-8 flex w-full text-white justify-center md:justify-start"></div>
         <div
           className="w-full h-xxl bg-no-repeat bg-cover overflow-hidden z-negative flex justify-evenly relative"
           style={
@@ -49,10 +44,10 @@ const Info = ({ match }) => {
           }
         >
           <div
-            className=" w-10/12 h-xl  rounded-md  overflow-hidden m-auto shadow-2xl flex flex-row"
+            className=" w-10/12 h-xl  rounded-md  overflow-hidden m-auto shadow-2xl flex flex-row "
             style={{ backgroundColor: `rgba(${0}, ${0}, ${0}, ${0.7})` }}
           >
-            <div className="flex w-3/12 overflow-hidden rounded-lg">
+            <div className="flex w-0 overflow-hidden rounded-lg  md:w-3/12">
               <img
                 alt="images"
                 className="h-full w-full object-cover"
@@ -65,8 +60,8 @@ const Info = ({ match }) => {
                 }
               ></img>
             </div>
-            <div className=" w-6/12 h-full relative z-0 flex-grow flex justify-center items-center">
-              <h4 className=" text-xl  font-grand font-bold w-9/12 leading-relaxed text-white">
+            <div className=" w-full h-full relative z-0 flex-grow flex justify-center items-center md:w-6/12">
+              <h4 className=" md:text-xl  text-sm font-sans font-bold w-9/12 leading-relaxed text-white">
                 {info[0].summary
                   ? check === true
                     ? `${info[0].summary.replace(

@@ -4,7 +4,6 @@ import Hero from "./Hero";
 import ServerCall from "../API/serverCall";
 
 import History from "../history";
-import Spinner from "./spinner";
 
 function Home() {
   const [search, setSearch] = useState(`doctor who`);
