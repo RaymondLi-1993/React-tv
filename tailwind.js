@@ -14,6 +14,12 @@ module.exports = {
       zIndex: {
         negative: -1,
       },
+      fontFamily: {
+        grand: [`Grandstander`],
+      },
+      backgroundColor: theme => ({
+        lighterBlack: `#202020`,
+      }),
     },
   },
   variants: {},

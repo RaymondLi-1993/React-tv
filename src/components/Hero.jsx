@@ -5,16 +5,12 @@ import Seasons from "./seasons";
 
 const Hero = ({ shows, handleSearch }) => {
   const [term, setTerm] = useState(``);
-  const [error, setError] = useState(``);
 
   let handleSubmit = event => {
     event.preventDefault();
     if (term) {
       handleSearch(term);
       setTerm(``);
-      setError(``);
-    } else {
-      setError(`Please enter a valid search`);
     }
   };
 
@@ -41,9 +37,6 @@ const Hero = ({ shows, handleSearch }) => {
               }}
             />
           </form>
-        </div>
-        <div className="w-full h-8 flex items-center">
-          <h6 className=" ml-48 my-2 text-red-600">{error}</h6>
         </div>
       </div>
       <Seasons shows={shows} check={{ key: false }} />

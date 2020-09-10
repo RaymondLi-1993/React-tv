@@ -7,7 +7,7 @@ const Episodes = ({ id, summary, image, name, handleClick }) => {
         onClick={event => {
           handleClick(event.target);
         }}
-        className="bg-white grid-cols-1 shadow-lg rounded-lg overflow-hidden m-auto cursor-pointer hover:opacity-75 w-9/12 h-l relative"
+        className="bg-white grid-cols-1 shadow-lg rounded-lg overflow-hidden m-auto cursor-pointer w-9/12 h-l relative"
       >
         <img
           alt={
@@ -23,7 +23,9 @@ const Episodes = ({ id, summary, image, name, handleClick }) => {
         />
 
         <div className="flex h-full justify-center items-end">
-          <h1 className="absolute z-50 text-white">{name}</h1>
+          <div className="absolute z-50 font-bold text-xl font-grand text-white">
+            {name}
+          </div>
         </div>
       </div>
     </>

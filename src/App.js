@@ -9,7 +9,7 @@ import Home from "./components/home";
 
 function App() {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full font-grand">
       <Router history={History}>
         <div>
           <Header />

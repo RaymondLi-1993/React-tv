@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Hero from "./Hero";
 import ServerCall from "../API/serverCall";
 
+import History from "../history";
+import Spinner from "./spinner";
+
 function Home() {
   const [search, setSearch] = useState(`doctor who`);
   const [shows, setShows] = useState(null);
@@ -14,7 +17,12 @@ function Home() {
           q: search,
         },
       });
-      setShows(response.data);
+      const data = await response.data;
+      if (data.length === 0) {
+        History.push(`/invalid`);
+      } else {
+        setShows(response.data);
+      }
     };
     apiCalls();
   }, [search]);

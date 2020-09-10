@@ -8,7 +8,7 @@ const Card = ({ Info, id }) => {
 
   return (
     <>
-      <div className="bg-white grid-cols-1 shadow-lg rounded-lg overflow-hidden m-auto cursor-pointer hover:opacity-75 w-9/12 h-l relative">
+      <div className="bg-white grid-cols-1 shadow-lg rounded-lg overflow-hidden m-auto cursor-pointer  hover:opacity-75 w-9/12 h-l relative">
         <img
           alt={`${Info.name}`}
           id={id}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 import Seasons from "./seasons";
+import Spinner from "./spinner";
 
 const Info = ({ match }) => {
   const [info, setInfo] = useState(``);
@@ -26,12 +27,13 @@ const Info = ({ match }) => {
   };
 
   if (info) {
+    console.log(select);
     return (
       <>
-        <div className=" bg-opacity-75 bg-black py-8 flex w-full text-white justify-center md:justify-start">
+        <div className=" h-24 bg-opacity-75 bg-black py-8 flex w-full text-white justify-center md:justify-start">
           {/* <h1 className="mx-6 font-mono font-bold">
             {" "}
-            EPISODE {info.number} || {info.name}
+            EPISODE {select.number} || {select.name}
           </h1> */}
         </div>
         <div
@@ -64,7 +66,7 @@ const Info = ({ match }) => {
               ></img>
             </div>
             <div className=" w-6/12 h-full relative z-0 flex-grow flex justify-center items-center">
-              <h4 className=" text-xl font-bold w-9/12 leading-relaxed text-white">
+              <h4 className=" text-xl  font-grand font-bold w-9/12 leading-relaxed text-white">
                 {info[0].summary
                   ? check === true
                     ? `${info[0].summary.replace(
@@ -82,7 +84,7 @@ const Info = ({ match }) => {
       </>
     );
   }
-  return <div>...Loading</div>;
+  return <Spinner />;
 };
 
 export default Info;
