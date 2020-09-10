@@ -79,7 +79,7 @@ const Info = ({ match }) => {
             </div>
           </div>
         </div>
-        <div className="bg-opacity-75 bg-black py-12 w-full"></div>
+        <div className="bg-opacity-75 bg-black py-12 w-full h-32"></div>
         <Seasons shows={info} check={{ key: true }} handleClick={handleClick} />
       </>
     );

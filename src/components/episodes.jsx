@@ -23,7 +23,7 @@ const Episodes = ({ id, summary, image, name, handleClick }) => {
         />
 
         <div className="flex h-full justify-center items-end">
-          <div className="absolute z-50 font-bold text-xl font-grand text-white">
+          <div className="z-50 font-bold text-xl font-grand text-white">
             {name}
           </div>
         </div>
