@@ -21,10 +21,9 @@ const Episodes = ({ id, summary, image, name, handleClick }) => {
               : `https://www.iceagetrail.org/wp-content/uploads/2016/11/currently-unavailable.png`
           }
         />
-
         <div className="flex h-full justify-center items-end">
           <div className="absolute z-50 font-bold text-base md:text-2xl font-grand text-white">
-            {name}
+            {image ? name : null}
           </div>
         </div>
       </div>
